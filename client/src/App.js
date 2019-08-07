@@ -31,7 +31,7 @@ class App extends React.Component{
 
   
   getAllIngredients =()=>{
-    axios.get('http://localhost:5000/ingredients-list')
+    axios.get(`${process.env.REACT_APP_BASE}ingredients-list`)
     .then((ingredients)=>{
       // console.log('ingredients from backend=========',ingredients.data)
       this.setState({listOfAllIngredients: ingredients.data, ready:true})
@@ -39,7 +39,7 @@ class App extends React.Component{
   }
 
   getMyIngredients = () =>{
-    axios.get("http://localhost:5000/ingredient-you-have", {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_BASE}ingredient-you-have`, {withCredentials: true})
     .then((ingredients)=>{
       console.log('my ingredients<<<<<<',ingredients.data)
         this.setState({myListOfIngredients: ingredients.data, mylistShowing:true})
@@ -47,7 +47,7 @@ class App extends React.Component{
   }
 
   getMyCocktails = () =>{
-    axios.get("http://localhost:5000/yourowncocktail", {withCredentials: true})
+    axios.get(`${process.env.REACT_APP_BASE}yourowncocktail`, {withCredentials: true})
     .then((cocktails)=>{
       console.log('my cocktails<<<<<<',cocktails)
         // this.setState({myListOfIngredients: ingredients.data})

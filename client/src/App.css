@@ -59,7 +59,7 @@ nav{
 
 
 .Home-page{
-  background-image:url("/img/home.jpg");
+  background-image:url("/images/home.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -89,7 +89,7 @@ nav{
 
 
 .list-part{
-  background-image:url("/img/build-cocktail4.jpg");
+  background-image:url("/images/build-cocktail4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -188,7 +188,7 @@ nav{
 }
 
 .Details-page{
-  background-image: url('/img/detail-background.jpg');
+  background-image: url('/images/detail-background.jpg');
 }
 .Cocktail-details{
   /* background:linear-gradient(#000000,#42413E);  */

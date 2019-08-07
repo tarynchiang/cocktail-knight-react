@@ -24,7 +24,7 @@ class AddCocktail extends Component {
     data.append('theIngredients',this.state.newIngredients);
 
 
-    axios.post("http://localhost:5000/create-cocktail", data, { headers: {
+    axios.post(`${process.env.REACT_APP_BASE}create-cocktail`, data, { headers: {
       'Content-Type': 'multipart/form-data',
     }, withCredentials: true })
     .then( () => {

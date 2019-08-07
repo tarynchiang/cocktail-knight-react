@@ -27,7 +27,7 @@ import {Link} from 'react-router-dom';
 
 
     addNewItem = (e)=>{
-        axios.post("http://localhost:5000/create-item",{name: e.target.name,}, {withCredentials: true})
+        axios.post(`${process.env.REACT_APP_BASE}create-item`,{name: e.target.name,}, {withCredentials: true})
         .then(()=>{
             console.log('success create')
             this.props.getMyIngredients();
@@ -38,7 +38,7 @@ import {Link} from 'react-router-dom';
     }
 
     deleteItem = (theID)=>{
-        axios.post('http://localhost:5000/delete-item/'+theID)
+        axios.post(`${process.env.REACT_APP_BASE}delete-item/`+theID)
         .then(()=>{
             console.log('success delete')
             this.props.getMyIngredients();
@@ -152,7 +152,7 @@ import {Link} from 'react-router-dom';
                     <li className="eachMyIngredient">
                     <span>{eachIngredient.name}</span>
                     <button className="delete-btn" onClick={()=>{this.deleteItem(eachIngredient._id)}}>
-                        <img src="/img/delete-button.png"/>
+                        <img src="/images/delete-button.png"/>
                     </button>
                     </li>
             )

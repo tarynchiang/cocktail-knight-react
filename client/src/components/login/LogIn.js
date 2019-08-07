@@ -26,7 +26,7 @@ class LogIn extends Component{
             console.log('-----', response)
             this.props.toggleForm('login');
             this.props.getUser();
-            this.props.history.push('/firstpage')
+            // this.props.history.push('/firstpage')
         })
     }
 

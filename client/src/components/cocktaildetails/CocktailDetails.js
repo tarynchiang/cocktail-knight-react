@@ -97,7 +97,7 @@ class Details extends React.Component{
                     </div>
                 </div>
                     <button onClick={this.goBack} className="GoBack-btn">
-                        <img src="/img/backarrow.png"/>
+                        <img src="/images/backarrow.png"/>
                     </button>
             </div>
         )

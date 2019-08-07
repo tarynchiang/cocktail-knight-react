@@ -16,7 +16,7 @@ require('./config/passport-stuff');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/project3-backend', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -67,11 +67,13 @@ app.use(passport.session());
 
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000', 'https://blah.herokuapp.com']
+  origin: ['http://localhost:3000']
 }));
 
 
-
+app.use((req,res,next)=>{
+  res.sendFile(_dirname + "/piblic/index.html")
+})
 
 const index = require('./routes/index');
 app.use('/', index);
