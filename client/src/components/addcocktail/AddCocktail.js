@@ -24,12 +24,11 @@ class AddCocktail extends Component {
     data.append('theIngredients',this.state.newIngredients);
 
 
-    axios.post(`${process.env.REACT_APP_BASE}create-cocktail`, data, { headers: {
+    axios.post("http://localhost:5000/create-cocktail", data, { headers: {
       'Content-Type': 'multipart/form-data',
     }, withCredentials: true })
     .then( () => {
-        // this.props.getData();
-        // this function updates the list in ProjectIndex.js
+       this.props.getMyCocktail();
         this.setState({
             newName: "", 
             newIngredients:[],
@@ -40,11 +39,15 @@ class AddCocktail extends Component {
     .catch( error => console.log(error))
   }
 
+  
+  
   handleChange = (event) => {  
       const {name, value} = event.target;
       this.setState({[name]: value});
   }
 
+  
+  
   handleIngredients = () =>{
     let clone = [...this.state.newIngredients];
     let current = this.state.currentIngredient;

@@ -5,7 +5,8 @@ import SignUp from "./components/signup/SignUp.js"
 import LogIn from "./components/login/LogIn.js";
 import Refrigerator from "./components/refrigerator/Refrigerator.js";
 import CocktailDetails from "./components/cocktaildetails/CocktailDetails.js";
-import Profile from "./components/profile/Profile.js"
+import Profile from "./components/profile/Profile.js";
+import AddCocktail from "./components/addcocktail/AddCocktail.js";
 import Homepage from "./components/homepage/homePage.js";
 import AuthService from './services/AuthService.js';
 import NavBar from './components/navbar/navBar.js';
@@ -19,11 +20,13 @@ class App extends React.Component{
     this.state={
       listOfAllIngredients:[],
       myListOfIngredients:[],
+      ListOfCocktails:[],
       currentlyLoggedIn: null,
       signupShowing: false,
       loginShowing: false,
       ready: false,
       mylistShowing:false,
+      myCocktailReady:false,
     }
 
     this.service = new AuthService();
@@ -31,7 +34,7 @@ class App extends React.Component{
 
   
   getAllIngredients =()=>{
-    axios.get(`${process.env.REACT_APP_BASE}ingredients-list`)
+    axios.get('http://localhost:5000/ingredients-list')
     .then((ingredients)=>{
       // console.log('ingredients from backend=========',ingredients.data)
       this.setState({listOfAllIngredients: ingredients.data, ready:true})
@@ -39,7 +42,7 @@ class App extends React.Component{
   }
 
   getMyIngredients = () =>{
-    axios.get(`${process.env.REACT_APP_BASE}ingredient-you-have`, {withCredentials: true})
+    axios.get("http://localhost:5000/ingredient-you-have", {withCredentials: true})
     .then((ingredients)=>{
       console.log('my ingredients<<<<<<',ingredients.data)
         this.setState({myListOfIngredients: ingredients.data, mylistShowing:true})
@@ -47,10 +50,10 @@ class App extends React.Component{
   }
 
   getMyCocktails = () =>{
-    axios.get(`${process.env.REACT_APP_BASE}yourowncocktail`, {withCredentials: true})
+    axios.get("http://localhost:5000/yourowncocktail", {withCredentials: true})
     .then((cocktails)=>{
       console.log('my cocktails<<<<<<',cocktails)
-        // this.setState({myListOfIngredients: ingredients.data})
+        this.setState({ListOfCocktails: cocktails.data, myCocktailReady:true})
     })
   }
 
@@ -92,6 +95,7 @@ class App extends React.Component{
     this.getMyIngredients();
     this.getCurrentlyLoggedInUser();
     this.getAllIngredients();
+    this.getMyCocktails();
   }
 
 
@@ -144,6 +148,15 @@ class App extends React.Component{
           <Route exact path="/profile" render = {(props)=> <Profile
           {...props}
           getMyCocktail ={this.getMyCocktails}
+          AlltheCocktails = {this.state.ListOfCocktails}
+          myCocktailReady = {this.state.myCocktailReady}
+          theUser = {this.state.currentlyLoggedIn} 
+          />}/>
+
+          <Route exact path="/createCocktail" render={(props)=> <AddCocktail
+            {...props}
+            getMyCocktail ={this.getMyCocktails}
+            theUser = {this.state.currentlyLoggedIn} 
           />}/>
 
         </Switch>
