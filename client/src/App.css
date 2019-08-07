@@ -1,0 +1,247 @@
+body{
+  font-family:Georgia, serif;
+}
+
+nav{
+  background-color: rgba(245, 30, 30, 0.782);
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-end;
+}
+
+
+.btn{
+  border-style: none;
+  background-color:transparent;
+  font-size:30px;
+  font-weight:bold;
+  color:white;
+  margin:20px;
+  font-family:Georgia, serif;
+  opacity: 0.9;
+}
+
+.form-sec{
+  position: absolute;
+  right:8%;
+  top:15%;
+}
+
+.sign-form{
+  color:white;
+  width:550px;
+  padding:30px;
+  font-size:30px;
+  background:rgba(66,65,62,0.8);
+  display:flex;
+  flex-direction: column;
+}
+.sign-form *{
+  margin:20px;
+}
+.sign-form input{
+  font-size:20px;
+  height:40px;
+}
+
+.btn-sec{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+}
+
+.btn-sec > button{
+  width:30%;
+  font-size:30px;
+  border:solid;
+  padding:10px;
+}
+
+
+.Home-page{
+  background-image:url("/img/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height:800px;
+  color:white;
+}
+
+.Home-page > h1{
+  font-size:60px;
+  width:647px;
+  margin:0 0;
+  line-height: 144px;
+  position:absolute;
+  top:200px;
+  left:100px;
+}
+
+
+
+
+.Ingredient-page{
+  color:white;
+  font-family:Gill Sans, sans-serif;
+  display:flex;
+  flex-direction: column;
+}
+
+
+.list-part{
+  background-image:url("/img/build-cocktail4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin:0 0;
+  height:800px;
+  display:flex;
+  flex-direction:column;
+}
+
+.list-sec{
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  margin-top:20px;
+}
+
+
+.IngredientsList{
+  list-style: none;
+  max-height:500px;/* you can change as you need it */
+  overflow:auto;/* to get scroll */
+  border:2px solid white;
+  padding:20px;
+  margin-top:20px;
+}
+
+.MyIngredientsList{
+  border:2px solid white;
+  height:500px;
+  padding:5px 60px;
+  margin-top:20px;
+}
+
+
+.eachIngredient{
+  font-size:30px;
+  color:white;
+  border-style:none;
+  background-color: transparent;
+  font-weight:bold;
+  opacity:0.8;
+}
+
+
+.delete-btn{
+  border-style: none;
+  background-color: transparent;
+}
+.delete-btn > img{
+  width:15px;
+  opacity:0.5;
+}
+
+
+
+.search-btn{
+  width:200px;
+  height:70px;
+  margin:auto;
+  font-size:30px;
+  color:white;
+  background-color:transparent;
+  opacity:0.8;
+  border-width:3px;
+  border-radius: 4px;
+}
+
+
+.eachMyIngredient{
+  list-style: none;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  margin:5px;
+  font-size:28px;
+}
+
+.myCocktailList{
+  background-color:rgba(0, 0, 0, 0.9);
+  display:flex;
+  flex-wrap: wrap;
+  padding-top:50px;
+}
+
+.eachCocktail{
+  margin:10px;
+  text-align: center;
+  text-decoration:none;
+  color: white;
+}
+
+.eachCocktail > img{
+  width:250px;
+  border-radius: 50px;
+  opacity:0.7;
+}
+
+.Details-page{
+  background-image: url('/img/detail-background.jpg');
+}
+.Cocktail-details{
+  /* background:linear-gradient(#000000,#42413E);  */
+  color:white;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding:30px;
+  height:600px;
+}
+
+.Cocktail-details >img{
+  width:500px;
+  border-radius: 40px;
+  opacity:0.8;
+}
+
+.Cocktail-details > div{
+  width:500px;
+  font-size:20px;
+}
+
+
+.Amount{
+  display:flex;
+  flex-direction:row;
+}
+
+.Amount > ul{
+  list-style:none;
+}
+
+.GoBack-btn{
+  border-style:none;
+  background-color:transparent;
+}
+
+.GoBack-btn > img{
+  width:70px;
+  position: absolute;
+  right:120px;
+  top: 120px;
+}
+
+.GoBack-btn:hover > img{
+  width:70px;
+  position: absolute;
+  right:150px;
+  top: 120px;
+}
+
+
+.btn:hover,.eachIngredient:hover,.delete-btn > img:hover,.search-btn:hover, .eachCocktail > img:hover{
+  opacity:1;
+}
