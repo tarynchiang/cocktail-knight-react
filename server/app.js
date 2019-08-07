@@ -71,9 +71,6 @@ app.use(cors({
 }));
 
 
-app.use((req,res,next)=>{
-  res.sendFile(_dirname + "/piblic/index.html")
-})
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -87,6 +84,9 @@ app.use('/', itemRoutes);
 const cocktailRoutes = require('./routes/cocktailRoutes');
 app.use('/', cocktailRoutes);
 
+app.use((req,res,next)=>{
+  res.sendFile(_dirname + "/piblic/index.html")
+})
 
 
 
