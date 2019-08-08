@@ -26,6 +26,7 @@ class SignUp extends Component{
             console.log('-----', response)
             this.props.toggleForm('signup');
             this.props.getUser();
+            this.props.history.push('/firstpage');
         })
     }
 
