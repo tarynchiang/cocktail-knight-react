@@ -7,8 +7,11 @@ import Refrigerator from "./components/refrigerator/Refrigerator.js";
 import CocktailDetails from "./components/cocktaildetails/CocktailDetails.js";
 import Profile from "./components/profile/Profile.js";
 import AddCocktail from "./components/addcocktail/AddCocktail.js";
+import EditCocktail from "./components/editcocktail/EditCocktail.js";
+import RecipeDetail from "./components/recipedetail/RecipeDetail.js";
 import Homepage from "./components/homepage/homePage.js";
 import AuthService from './services/AuthService.js';
+import FirstPage from "./components/firstpage/FirstPage.js";
 import NavBar from './components/navbar/navBar.js';
 import axios from 'axios';
 
@@ -116,7 +119,7 @@ class App extends React.Component{
             cancelBtn={this.cancelBtn}/>
         }
         {this.state.loginShowing &&
-          <LogIn getUser = {this.getCurrentlyLoggedInUser} 
+          <LogIn {...this.props} getUser = {this.getCurrentlyLoggedInUser} 
             toggleForm={this.toggleForm}
             cancelBtn={this.cancelBtn}/>
         }
@@ -158,6 +161,22 @@ class App extends React.Component{
             getMyCocktail ={this.getMyCocktails}
             theUser = {this.state.currentlyLoggedIn} 
           />}/>
+
+          <Route exact path="/editCocktail/:id" render={(props)=> <EditCocktail
+            {...props}
+            thecocktails = {this.state.ListOfCocktails}
+            getMyCocktail ={this.getMyCocktails}
+            theUser = {this.state.currentlyLoggedIn} 
+          />}/>
+
+          <Route exact path="/firstpage" render={(props)=> <FirstPage
+            {...props}/>}/>
+
+          <Route exact path="/recipedetails/:id" render={(props)=> <RecipeDetail
+            {...props}
+            thecocktails = {this.state.ListOfCocktails}
+          />}/>
+
 
         </Switch>
       </div>

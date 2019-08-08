@@ -12,22 +12,24 @@ function navBar(props){
     }
     return(
         <nav>
+            <Link exact to="/firstpage" >
+                <img src="/images/homeSign.png" alt="home"/>
+            </Link>
+            <div>
+                {!props.theUser && 
+                    <span>
+                        <button className="btn" onClick = {()=> props.toggleForm('signup')}>Sign Up</button>
+                        <button className="btn" onClick = {()=> props.toggleForm('login')} > Login </button>
+                    </span>
+                }
 
-            {!props.theUser && 
+                {props.theUser && 
                 <span>
-                    <button className="btn" onClick = {()=> props.toggleForm('signup')}>Sign Up</button>
-                    <button className="btn" onClick = {()=> props.toggleForm('login')} > Login </button>
+
+                <button className="btn" onClick = {doTheLogout} >Log Out </button>
                 </span>
-            }
-
-            {props.theUser && 
-            <span>
-
-            <button className="btn" onClick = {doTheLogout} >Log Out </button>
-
-                {/* <span>Hello, {props.theUser.username}</span> */}
-            </span>
-            }
+                }
+            </div>
 
         </nav>
     )

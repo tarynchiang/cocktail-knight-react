@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const axios = require('axios');
 const Cocktail = require('../models/Cocktail');
 const uploadMagic = require('../config/cloudinary');
 
@@ -9,9 +8,7 @@ router.get('/yourowncocktail',(req,res,next)=>{
 
   Cocktail.find({owner: req.user._id}).populate('owner')
   .then((AllTheCocktails)=>{
-    
-    console.log('MyOwnCocktail=========',AllTheCocktails)
-    
+        
     res.json(AllTheCocktails);
   })
   .catch((err)=>{
@@ -21,10 +18,11 @@ router.get('/yourowncocktail',(req,res,next)=>{
 
 
 router.post('/create-cocktail',uploadMagic.single('theImage'),(req,res,next)=>{
+
   
   let name = req.body.theName;
   let ingredients = req.body.theIngredients;
-  let instruction = req.body.theInstruction;
+  let Instruction = req.body.theInstruction;
   let owner = req.user._id;
 
   let img;
@@ -39,13 +37,33 @@ router.post('/create-cocktail',uploadMagic.single('theImage'),(req,res,next)=>{
   Cocktail.create({
     name: name,
     ingredients:ingredients,
-    instruction:instruction,
+    instruction:Instruction,
     img:img,
     owner: owner,
   })
   .then((response)=>{
-    console.log('successfully create new cocktail')
     res.json(response);
+  })
+  .catch((err)=>{
+    res.json(err);
+  })
+})
+
+
+router.post('/update-cocktail/:id', uploadMagic.single('theImage'), (req, res, next)=>{
+
+  let theUpdate = {};
+  theUpdate.name = req.body.theName;
+  theUpdate.ingredients = req.body.theIngredients
+  theUpdate.instruction = req.body.theInstruction;
+
+  if(req.file){
+    theUpdate.image = req.file.url
+  }
+
+  Cocktail.findByIdAndUpdate(req.params.id, theUpdate)
+  .then((singleCocktail)=>{
+    res.json(singleCocktail);
   })
   .catch((err)=>{
     res.json(err);
@@ -61,6 +79,39 @@ router.post('/delete-cocktail/:id',(req,res,next)=>{
   Cocktail.findByIdAndRemove(theID)
   .then((response)=>{
     res.json(response);
+  })
+  .catch((err)=>{
+    res.json(err);
+  })
+})
+
+router.post('/delete-ingredient/:CocktailId/:Ingredient',(req,res,next)=>{
+  
+  theID = req.params.CocktailId;
+  theIngredient = req.params.Ingredient;
+
+  console.log('4545454545454545454545>>>>>>>>>>',req.params.Ingredient)
+  Cocktail.findById(theID)
+  .then((theCocktail)=>{
+
+    console.log(theCocktail)
+    
+    let i = theCocktail.ingredients.indexOf(theIngredient)
+    
+        
+   
+        theCocktail.ingredients.splice(i,1)
+      
+      
+
+    theCocktail.save()
+    .then(()=>{
+      res.json(response);
+    })
+    .catch((err)=>{
+      res.json(err);
+    }) 
+  
   })
   .catch((err)=>{
     res.json(err);

@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import '../../App.css';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
- class Refrigerator extends Component{
+ 
+
+
+class Refrigerator extends Component{
 
     constructor(props){
         super(props);
@@ -21,7 +24,7 @@ import {Link} from 'react-router-dom';
                     this.handleSearchInput();
                 }
             }
-        },250)
+        },500)
      
     }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../App.css';
 import axios from 'axios';
-import {Link} from 'react-router-dom';
 
 class Details extends React.Component{
 
@@ -92,12 +91,12 @@ class Details extends React.Component{
                             <ul>{this.showIngredients()}</ul>
                             <ul>{this.showAmount()}</ul>
                         </div>
-                        <h3>Description</h3>
+                        <h3>Instruction</h3>
                         <p>{this.state.Cocktail.instruction}</p>
                     </div>
                 </div>
                     <button onClick={this.goBack} className="GoBack-btn">
-                        <img src="/images/backarrow.png"/>
+                        <img src="/images/backarrow.png" alt="goback-btn"/>
                     </button>
             </div>
         )

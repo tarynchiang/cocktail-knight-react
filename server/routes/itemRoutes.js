@@ -27,7 +27,7 @@ router.get('/ingredients-list', (req, res, next) => {
   let ingrediantlist = [];
   axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list')
   .then((theItems) => {
-    console.log('<<<<<<<<<<<',theItems)
+    // console.log('<<<<<<<<<<<',theItems)
     theItems.data.drinks.forEach(oneItem => {
       ingrediantlist.push(oneItem.strIngredient1)
     })
