@@ -113,6 +113,7 @@ class App extends React.Component{
         />
 
         {this.state.signupShowing && <SignUp
+            {...this.props}
             getUser = {this.getCurrentlyLoggedInUser}
             signupShowing = {this.signupShowing}
             toggleForm={this.toggleForm}
