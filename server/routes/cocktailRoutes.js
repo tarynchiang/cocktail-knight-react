@@ -58,7 +58,7 @@ router.post('/create-cocktail',uploadMagic.single('theImage'),(req,res,next)=>{
 router.post('/delete-cocktail/:id',(req,res,next)=>{
   theID = req.params.id;
 
-  Item.findByIdAndRemove(theID)
+  Cocktail.findByIdAndRemove(theID)
   .then((response)=>{
     res.json(response);
   })

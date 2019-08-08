@@ -8,7 +8,7 @@ class Profile extends React.Component{
 
     deleteCocktail = (idOfCocktail) =>{
     
-        axios.post('http://localhost:5000/delete-cocktail/'+idOfCocktail)
+        axios.post(`${process.env.REACT_APP_API_URL}/delete-cocktail/`+idOfCocktail)
         .then(()=>{
             this.props.getMyCocktail();
         })
@@ -26,7 +26,7 @@ class Profile extends React.Component{
         return myCocktails.map((eachCocktail)=>{
             return(
                 <div>
-                    <img src={eachCocktail.img}/>
+                    <img src={eachCocktail.img} alt="cocktail-img"/>
                     <h1>{eachCocktail.name}</h1>
                     <button onClick={this.deleteCocktail(eachCocktail._id)}>delete</button>
                 </div>

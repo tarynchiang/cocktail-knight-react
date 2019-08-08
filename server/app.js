@@ -83,12 +83,10 @@ app.use('/', itemRoutes);
 const cocktailRoutes = require('./routes/cocktailRoutes');
 app.use('/', cocktailRoutes);
 
-app.use((req,res,next)=>{
-  res.sendFile(_dirname + "/piblic/index.html")
-})
 
-
-
+app.use((req, res, next) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 
 module.exports = app;
