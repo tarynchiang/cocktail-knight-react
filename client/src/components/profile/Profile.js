@@ -44,11 +44,13 @@ class Profile extends React.Component{
                             <img src={eachCocktail.img} alt="cocktail-img"/>
                             <h1>{eachCocktail.name}</h1>
                         </Link>
-                        {/* <button onClick={()=>{this.changeEditing(index)}} >Edit</button> */}
-                        <Link exact to={`/editCocktail/${eachCocktail._id}`}>
-                            edit
-                        </Link>
-                        <button onClick={()=>this.deleteCocktail(eachCocktail._id)}>delete</button>
+
+                        <div className="delete-edit">
+                            <Link exact to={`/editCocktail/${eachCocktail._id}`}>
+                                edit
+                            </Link>
+                            <button onClick={()=>this.deleteCocktail(eachCocktail._id)}>delete</button>
+                        </div>
                     </div>
                 )
             }else{

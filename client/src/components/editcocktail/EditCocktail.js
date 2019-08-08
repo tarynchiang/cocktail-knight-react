@@ -53,8 +53,8 @@ class EditCocktail extends Component {
     axios.post(`http://localhost:5000/update-cocktail/${this.props.match.params.id}`,
      theRequest)
     .then( () => {
-        this.props.getAllTheCocktailInAppJS();
-        this.props.resetEditingSituation();
+        this.props.getMyCocktail();
+        // this.props.resetEditingSituation();
         this.props.history.push('/profile');
     })
     .catch( error => console.log(error) )
@@ -62,6 +62,8 @@ class EditCocktail extends Component {
 
 
   handleChange = (event) => {  
+    console.log("NAME", event.target.name)
+    console.log("VALUE", event.target.value)
     this.setState({
       [event.target.name]:event.target.value
     })
@@ -71,7 +73,15 @@ class EditCocktail extends Component {
   deleteIngredient = (Ing)=>{
     axios.post(`http://localhost:5000/delete-ingredient/${this.props.match.params.id}/${Ing}`)
     .then(()=>{
-      this.showIngredientyouhave();
+
+      console.log('in the THENNNN')
+
+      this.props.getMyCocktail()
+
+      setTimeout(()=>{
+        this.getTheCocktail();
+      },200)
+
     })
     .catch((err)=>{
       console.log(err);
@@ -84,9 +94,11 @@ class EditCocktail extends Component {
       // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~',eachIngredient);
       // console.log(this.state.ingredients)
       return(
-          <div>
+          <div className="myIngList">
             <p>{eachIngredient}</p>
-            <button onClick={()=>{this.deleteIngredient(eachIngredient)}}>delete</button>
+            <button  className="delete-btn" type="button" onClick={()=>{this.deleteIngredient(eachIngredient)}}>
+              <img src="/images/delete-button.png" alt="delete-button"/>
+            </button>
           </div>
       )
     })
@@ -107,27 +119,40 @@ class EditCocktail extends Component {
   }
 
   render(){
-    // console.log('=====', this.state)
+    console.log('=====', this.props)
     console.log("parameter",this.props.match.params.id)
     console.log("state",this.state);
     
     if(this.state.ready){
       return(
-        <div>
-          <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
-          </div>
-        
-            <input type="text" name="Ingredients" value={this.state.currentIngredient} onChange={ e => this.handleChange(e)}/>
-            <button type="button" onClick={this.handleIngredients}>+</button>
-            {this.showIngredientyouhave()}
-
-            <input name="instruction" value={this.state.instruction} onChange={ e => this.handleChange(e)} />
-
+        <div className="add-cocktail">
+          <form onSubmit={this.handleFormSubmit} className="add-box">
+          
+          <div className="first-box">
+            <div>
+              <label>Name:</label>
+              <input type="text" name="name" value={this.state.name} onChange={ e => this.handleChange(e)}/>
+            </div>
+            
             <input type="file" onChange={this.updateFileInState} />
+          </div>
 
-            <input type="submit" value="Submit" />
+          <div className="second-box">
+            <div className="sec-box1">
+              <legend>Ingredients</legend>
+              <input type="text" name="currentIngredient" value={this.state.currentIngredient} onChange={ e => this.handleChange(e)}/>
+              <button type="button" onClick={this.handleIngredients}>+</button>
+              {this.showIngredientyouhave()}
+            </div>
+
+            <div className="sec-box2">
+              <legend>Instruction</legend>
+              <textarea rows="20" cols="50" name="instruction" value={this.state.instruction} onChange={ e => this.handleChange(e)} />
+            </div>
+
+          </div>
+
+            <input type="submit" value="Submit" className="submit-btn" />
           </form>
         </div>
       )
