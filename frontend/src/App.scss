@@ -1,0 +1,380 @@
+@font-face {
+  font-family: canela;
+  src: url("../public/fonts/Canela-Regular-Trial.otf");
+}
+
+.app {
+  position: relative;
+  font-family: canela;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+  37% {
+    transform: translateX(5px);
+    timing-function: ease-out;
+  }
+  55% {
+    transform: translateX(-5px);
+    timing-function: ease-in;
+  }
+  73% {
+    transform: translateX(4px);
+    timing-function: ease-out;
+  }
+  82% {
+    transform: translateX(-4px);
+    timing-function: ease-in;
+  }
+  91% {
+    transform: translateX(2px);
+    timing-function: ease-out;
+  }
+  96% {
+    transform: translateX(-2px);
+    timing-function: ease-in;
+  }
+  100% {
+    transform: translateX(0px);
+    timing-function: ease-in;
+  }
+}
+
+// .Ingredient-page {
+//   color: white;
+//   font-family: Gill Sans, sans-serif;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .list-part {
+//   background-image: url("/images/build-cocktail4.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   margin: 0 0;
+//   height: 800px;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .list-sec {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+//   margin-top: 20px;
+// }
+
+// .IngredientsList {
+//   list-style: none;
+//   max-height: 500px; /* you can change as you need it */
+//   overflow: auto; /* to get scroll */
+//   border: 2px solid white;
+//   padding: 20px;
+//   margin-top: 20px;
+// }
+
+// .MyIngredientsList {
+//   border: 2px solid white;
+//   height: 500px;
+//   padding: 5px 60px;
+//   margin-top: 20px;
+// }
+
+// .eachIngredient {
+//   font-size: 30px;
+//   color: white;
+//   border-style: none;
+//   background-color: transparent;
+//   font-weight: bold;
+//   opacity: 0.8;
+// }
+
+// .delete-btn {
+//   border-style: none;
+//   background-color: transparent;
+// }
+// .delete-btn > img {
+//   width: 15px;
+//   opacity: 0.5;
+// }
+
+// .search-btn {
+//   width: 200px;
+//   height: 70px;
+//   margin: auto;
+//   font-size: 30px;
+//   color: white;
+//   background-color: transparent;
+//   opacity: 0.8;
+//   border-width: 3px;
+//   border-radius: 4px;
+// }
+
+// .eachMyIngredient {
+//   list-style: none;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   margin: 5px;
+//   font-size: 28px;
+// }
+
+// .myCocktailList {
+//   background-color: rgba(0, 0, 0, 0.9);
+//   display: flex;
+//   flex-wrap: wrap;
+//   padding-top: 50px;
+// }
+
+// .eachCocktail {
+//   margin: 10px;
+//   text-align: center;
+//   text-decoration: none;
+//   color: white;
+// }
+
+// .eachCocktail > img {
+//   width: 250px;
+//   border-radius: 50px;
+//   opacity: 0.7;
+// }
+
+// .Details-page {
+//   background-image: url("../public/images/detail-background.jpg");
+// }
+// .Cocktail-details {
+//   color: white;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   padding: 30px;
+//   height: 600px;
+// }
+
+// .Cocktail-details > img {
+//   width: 500px;
+//   border-radius: 40px;
+//   opacity: 0.8;
+// }
+
+// .Cocktail-details > div {
+//   width: 500px;
+//   font-size: 20px;
+// }
+
+// .Amount {
+//   display: flex;
+//   flex-direction: row;
+// }
+
+// .Amount > ul {
+//   list-style: none;
+// }
+
+// .GoBack-btn {
+//   border-style: none;
+//   background-color: transparent;
+// }
+
+// .GoBack-btn > img {
+//   width: 70px;
+//   position: absolute;
+//   right: 120px;
+//   top: 120px;
+// }
+
+// .GoBack-btn:hover > img {
+//   width: 70px;
+//   position: absolute;
+//   right: 150px;
+//   top: 120px;
+// }
+
+// .first-page {
+//   background-image: url("/images/build-coctail.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   margin: 0 0;
+//   height: 800px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// .first-page > a {
+//   color: white;
+//   font-size: 50px;
+//   text-decoration: none;
+//   width: 27%;
+//   background-color: transparent;
+//   padding: 20px;
+//   margin: 20px;
+//   border-radius: 10px;
+//   text-align: center;
+// }
+
+// .first-page > a:hover {
+//   box-shadow: 10px;
+//   background-color: lightgray;
+// }
+
+// .recipe-page {
+//   background-image: url("/images/detail-background.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   height: 1200px;
+//   display: flex;
+//   flex-wrap: wrap;
+//   color: white;
+// }
+
+// .eachRecipe {
+//   margin: 20px;
+//   text-align: center;
+//   height: 300px;
+// }
+
+// .eachRecipe > a {
+//   text-decoration: none;
+//   color: white;
+// }
+
+// .eachRecipe > a > img {
+//   width: 300px;
+//   border-radius: 20px;
+// }
+
+// .add-cocktail {
+//   background-image: url("/images/detail-background.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-position: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .add-box {
+//   font-size: 45px;
+//   color: white;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   margin: 50px;
+// }
+
+// .first-box {
+//   width: 850px;
+//   margin: 20px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+// }
+
+// .first-box input {
+//   width: 40%;
+// }
+
+// .first-box > div > input {
+//   font-size: 30px;
+//   padding: 10px;
+//   border-radius: 10px;
+// }
+
+// .second-box {
+//   width: 850px;
+//   margin: 20px;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+// }
+
+// .sec-box1 > input {
+//   font-size: 20px;
+//   padding: 10px;
+//   border-radius: 10px;
+// }
+
+// .sec-box1 > button {
+//   color: white;
+//   background-color: transparent;
+//   border-style: none;
+//   font-size: 50px;
+// }
+
+// .sec-box2 > textarea {
+//   font-size: 20px;
+//   padding: 10px;
+// }
+
+// .add-pic {
+//   height: 300px;
+//   margin: 20px 50px;
+// }
+
+// .add-pic > img {
+//   width: 200px;
+// }
+
+// .submit-btn {
+//   color: white;
+//   font-size: 40px;
+//   width: 215px;
+//   height: 70px;
+//   background-color: transparent;
+//   border-radius: 10px;
+//   padding: 0px;
+// }
+
+// .submit-btn:hover {
+//   background-color: gray;
+// }
+
+// .myIngList {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+//   font-size: 23px;
+//   padding: 0px;
+// }
+
+// .delete-edit {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-evenly;
+// }
+
+// .delete-edit > a {
+//   text-decoration: none;
+//   color: white;
+//   font-size: 20px;
+//   border: 1px solid white;
+//   padding: 5px 10px;
+// }
+// .delete-edit > a:hover,
+// .delete-edit > button:hover {
+//   background-color: grey;
+// }
+
+// .delete-edit > button {
+//   background-color: transparent;
+//   color: white;
+//   font-size: 20px;
+// }
+
+// .btn:hover,
+// .eachIngredient:hover,
+// .delete-btn > img:hover,
+// .search-btn:hover,
+// .eachCocktail > img:hover {
+//   opacity: 1;
+// }
