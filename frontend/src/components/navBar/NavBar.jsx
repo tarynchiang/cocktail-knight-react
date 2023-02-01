@@ -26,18 +26,8 @@ class NavBar extends Component {
     return (
       <div className={styles["nav-container"]}>
         <div>
-          <button
-            className={styles.btn}
-            onClick={() => this.setBtnType("login")}
-          >
-            Login
-          </button>
-          <button
-            className={styles.btn}
-            onClick={() => this.setBtnType("signup")}
-          >
-            Sign up
-          </button>
+          <button onClick={() => this.setBtnType("login")}>Login</button>
+          <button onClick={() => this.setBtnType("signup")}>Sign up</button>
         </div>
         <Form
           trigger={!!this.state.btnType}
