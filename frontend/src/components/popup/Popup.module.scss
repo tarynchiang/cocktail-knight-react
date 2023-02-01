@@ -1,0 +1,69 @@
+@import "../../App.scss";
+
+.custom-modal-content {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  border: none !important;
+}
+
+.content {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  padding: 30px;
+
+  .header {
+    border: none;
+  }
+
+  .body {
+    display: flex;
+  }
+
+  .footer {
+    border: none;
+    justify-content: space-evenly;
+    gap: 10px;
+
+    button {
+      border: 1px solid white;
+      border-radius: 2px;
+      background-color: transparent;
+      color: white;
+      flex: 1;
+      padding: 5px;
+    }
+
+    .secondary {
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+
+      &:active {
+        background-color: #ececec;
+      }
+    }
+
+    .primary {
+      background: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+      border: none;
+      height: calc(100% - 6px);
+      color: white;
+
+      &:hover {
+        background: linear-gradient(45deg, #9b49bf 0%, #ed382b 100%);
+      }
+
+      &:active {
+        background: linear-gradient(45deg, #8d4dab 0%, #cc362b 100%);
+      }
+    }
+  }
+}
+
+.error {
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-delay: 0.25s;
+}
