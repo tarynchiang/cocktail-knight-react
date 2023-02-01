@@ -1,0 +1,49 @@
+@import "../../App.scss";
+
+.home-page {
+  background-image: url("../../../public/images/home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  gap: 30px;
+
+  .upper-container,
+  .lower-container {
+    display: flex;
+    width: 70%;
+    user-select: none;
+  }
+
+  .upper-container {
+    justify-content: flex-start;
+  }
+
+  .lower-container {
+    justify-content: flex-end;
+  }
+}
+
+.upper-header {
+  transform: translateX(-100%);
+}
+
+.lower-header {
+  transform: translateX(100%);
+}
+
+.slide-in {
+  animation: slide-in 3s forwards;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translateX(0%);
+  }
+}
