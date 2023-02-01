@@ -1,0 +1,31 @@
+@import "../../App.scss";
+
+$opacity: 0.6;
+
+.nav-container {
+  background: rgba(33, 37, 41, $opacity);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    background-color: transparent;
+    border-radius: 2px;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 20px 24px;
+    font-weight: 700;
+  }
+
+  button:hover {
+    background-color: rgba(56, 63, 69, $opacity);
+  }
+
+  button:active {
+    background-color: rgb(33, 37, 41, $opacity);
+  }
+}
