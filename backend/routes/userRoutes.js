@@ -12,7 +12,7 @@ router.post("/signup", (req, res, next) => {
   const userPassword = req.body.password;
 
   if (!userName || !userPassword) {
-    res.status(400).json({ message: "Provide username and password" });
+    res.status(400).json({ message: "Please enter username and/or password" });
     return;
   }
 
@@ -76,7 +76,7 @@ router.post("/login", (req, res, next) => {
     }
 
     if (!theUser) {
-      res.status(401).json(failureDetails);
+      res.status(401).json({ message: "Incorrect username or password" });
       return;
     }
 
