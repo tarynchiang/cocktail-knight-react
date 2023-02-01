@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 50px;
+
+  div,
+  div > input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    outline: none;
+  }
+
+  .error {
+    border: 1px solid red;
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-delay: 0.25s;
+  }
+
+  .warning-message {
+    color: red;
+  }
+}
