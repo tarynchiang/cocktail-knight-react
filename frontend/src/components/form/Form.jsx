@@ -17,35 +17,7 @@ export default class Form extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    const username = this.state.username;
-    const password = this.state.password;
-
-    this.validate(username, password);
-  }
-
-  validate(username, password) {
-    let valid = true;
-    const service = this.getService(this.props.type);
-
-    service(username, password)
-      .catch((error) => {
-        this.setState({ warningMessage: error.response.data.message });
-        valid = !error;
-      })
-      .then(() => {
-        if (valid) {
-          this.props.handleClose();
-          this.clearData();
-
-          // this.props.getUser();
-          // this.props.history.push("/firstpage");
-        }
-      });
+    this.handleClose = this.handleClose.bind(this);
   }
 
   getService(type) {
@@ -83,10 +55,42 @@ export default class Form extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const username = this.state.username;
+    const password = this.state.password;
+
+    this.validate(username, password);
+  }
+
+  validate(username, password) {
+    let valid = true;
+    const service = this.getService(this.props.type);
+
+    service(username, password)
+      .catch((error) => {
+        this.setState({ warningMessage: error.response.data.message });
+        valid = !error;
+      })
+      .then(() => {
+        if (valid) {
+          this.handleClose();
+          // this.props.getUser();
+          // this.props.history.push("/firstpage");
+        }
+      });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
     this.setState({ warningMessage: "" });
   };
+
+  handleClose() {
+    this.props.handleClose();
+    this.clearData();
+  }
 
   clearData() {
     this.setState(initialState);
@@ -98,7 +102,7 @@ export default class Form extends Component {
         trigger={this.props.trigger}
         submitBtn={this.getBtn(this.props.type)}
         title={this.getTitle(this.props.type)}
-        handleClose={this.props.handleClose}
+        handleClose={this.handleClose}
         handleSubmit={this.handleSubmit}
         error={!!this.state.warningMessage}
       >
